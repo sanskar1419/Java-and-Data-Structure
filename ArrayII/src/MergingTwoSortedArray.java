@@ -1,5 +1,5 @@
-public class MergeSort {
-    public static int[] mergeSort(int arr1[],int arr2[]){
+public class MergingTwoSortedArray {
+    public static int[] mergingTwoSortedArray(int arr1[],int arr2[]){
        int n = arr1.length;
        int m = arr2.length;
        int arr3[] = new int[n+m];
@@ -41,7 +41,7 @@ public class MergeSort {
     public static void main(String args[]){
         int arr1[]={1,4,10,12,13};
         int arr2[] = {2,3,5,7,11,14,20};
-        int arr3[]=mergeSort(arr1,arr2);
+        int arr3[]=mergingTwoSortedArray(arr1,arr2);
         PrintArray(arr3);
     }
 }
