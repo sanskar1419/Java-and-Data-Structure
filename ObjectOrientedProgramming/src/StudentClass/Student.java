@@ -27,6 +27,13 @@ public class Student {
             return;
         }
 
+        
         // rollNo = num;
+    }
+
+
+    public int getNumStudent(){
+        return numStudent;
+       
     }
 }

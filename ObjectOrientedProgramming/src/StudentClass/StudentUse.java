@@ -5,8 +5,11 @@ public class StudentUse {
         Student s1 = new Student("Sanskar" , 12);
         Student s2 = new Student("Harry" , 14);
 
+        System.out.println(s1.getNumStudent());
+
         s1.print();
         s2.print();
+
 
         // System.out.println(s1);
         // System.out.println(s1.name + " " + s1.rollNo + " " +  s1.arr);

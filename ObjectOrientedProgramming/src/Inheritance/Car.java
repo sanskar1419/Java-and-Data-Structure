@@ -13,6 +13,6 @@ public class Car extends Vehicle {
     }
 
     public void print(){
-        System.out.println("Car's print method is called");
+        System.out.println("Car's print method is called : " + "nodoors : " + noDoors );
     }
 }
