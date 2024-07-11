@@ -12,8 +12,8 @@ public class AppendLastNToFront{
             head = currentNode;
             tail = currentNode;
           } else {
-            tail.reference = currentNode;
-            tail = tail.reference;
+            tail.next = currentNode;
+            tail = tail.next;
           }
           data = s.nextInt();
         }
@@ -24,7 +24,7 @@ public class AppendLastNToFront{
 
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
 
         System.out.println();
@@ -33,7 +33,7 @@ public class AppendLastNToFront{
         int i=0;
         while(head != null){
             i++;
-            head = head.reference;
+            head = head.next;
         }
         return i;
     }
@@ -43,9 +43,9 @@ public class AppendLastNToFront{
         }
         int count = 0;
         Node<Integer> lastNode = head;
-        while(lastNode.reference != null){
+        while(lastNode.next != null){
             count++;
-            lastNode = lastNode.reference;
+            lastNode = lastNode.next;
         }
 
         int size = count+1;
@@ -57,13 +57,13 @@ public class AppendLastNToFront{
         count = 0;
         while(count < size - n - 1 && prevNode != null){
             count++;
-            prevNode = prevNode.reference;
+            prevNode = prevNode.next;
         }
 
         if(prevNode!=null){
-            lastNode.reference = head;
-            head = prevNode.reference;
-            prevNode.reference = null;
+            lastNode.next = head;
+            head = prevNode.next;
+            prevNode.next = null;
         }
         return head;
 	}

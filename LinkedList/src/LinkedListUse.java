@@ -5,30 +5,30 @@ public class LinkedListUse {
     Node<Integer> n3 = new Node<>(30);
     Node<Integer> n4 = new Node<>(40);
     Node<Integer> n5 = new Node<>(-1);
-    n1.reference = n2;
-    n2.reference = n3;
-    n3.reference = n4;
-    n4.reference = n5;
+    n1.next = n2;
+    n2.next = n3;
+    n3.next = n4;
+    n4.next = n5;
 
     return n1;
     }
 
     public static void print(Node<Integer> head){
       // System.out.println(head.data);
-      // System.out.println(head.reference.data);
-      // System.out.println(head.reference.reference.data);
-      // System.out.println(head.reference.reference.reference.data);
-      // System.out.println(head.reference.reference.reference.reference.data);
+      // System.out.println(head.next.data);
+      // System.out.println(head.next.next.data);
+      // System.out.println(head.next.next.next.data);
+      // System.out.println(head.next.next.next.next.data);
 
       // Node<Integer> temp = head;
       // while(temp != null){
       //    System.out.print(temp.data + " ");
-      //    temp = temp.reference;
+      //    temp = temp.next;
       // }
 
       while(head != null){
       System.out.print(head.data + " ");
-      head = head.reference;
+      head = head.next;
       }
 
       System.out.println();
@@ -40,7 +40,7 @@ public class LinkedListUse {
 
          while(temp != null){
             temp.data++;
-            temp = temp.reference;
+            temp = temp.next;
          }
     }
 
@@ -50,7 +50,7 @@ public class LinkedListUse {
 
       while(temp != null){
          i++;
-         temp = temp.reference;
+         temp = temp.next;
       }
 
       return i;
@@ -65,11 +65,11 @@ public class LinkedListUse {
     System.out.println("Size : "+size(head));
    //  System.out.println("Head : " + head );
    //  System.out.println("data : " + head.data );
-   //  System.out.println("reference : " + head.reference );
+   //  System.out.println("next : " + head.next );
 
    //  print(head);
     // Node<Integer> n1 = new Node<>(10);
     // System.out.println(n1.data);
-    // System.out.println(n1.reference);
+    // System.out.println(n1.next);
  }
 }

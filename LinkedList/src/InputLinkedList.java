@@ -15,11 +15,11 @@ public class InputLinkedList {
               head = currentNode;
             } else {
               Node<Integer> tail = head;
-              while(tail.reference != null){
-                tail = tail.reference;
+              while(tail.next != null){
+                tail = tail.next;
               }
 
-              tail.reference = currentNode;
+              tail.next = currentNode;
             }
             data = s.nextInt();
         }
@@ -30,7 +30,7 @@ public class InputLinkedList {
         Node<Integer> temp = head;
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
 
         System.out.println();

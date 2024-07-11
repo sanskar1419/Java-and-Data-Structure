@@ -12,8 +12,8 @@ public class RemoveDuplicates{
             head = currentNode;
             tail = currentNode;
           } else {
-            tail.reference = currentNode;
-            tail = tail.reference;
+            tail.next = currentNode;
+            tail = tail.next;
           }
           data = s.nextInt();
         }
@@ -24,7 +24,7 @@ public class RemoveDuplicates{
 
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
 
         System.out.println();
@@ -33,26 +33,26 @@ public class RemoveDuplicates{
         int i=0;
         while(head != null){
             i++;
-            head = head.reference;
+            head = head.next;
         }
         return i;
     }
 
     public static Node<Integer> removeDuplicates(Node<Integer> head) {
-        if(head == null  || head.reference==null){
+        if(head == null  || head.next==null){
             return head;
         }
         Node<Integer> slow = head;
-        Node<Integer> fast = head.reference;
+        Node<Integer> fast = head.next;
         while(fast != null){
             if(!(fast.data).equals(slow.data) ){
-               slow.reference = fast;
+               slow.next = fast;
                slow = fast;
             }
-            fast = fast.reference;
+            fast = fast.next;
         }
        
-            slow.reference = fast;
+            slow.next = fast;
       
         return head;
 	}

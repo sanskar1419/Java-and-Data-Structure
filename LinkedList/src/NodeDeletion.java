@@ -12,8 +12,8 @@ public class NodeDeletion{
             head = currentNode;
             tail = currentNode;
           } else {
-            tail.reference = currentNode;
-            tail = tail.reference;
+            tail.next = currentNode;
+            tail = tail.next;
           }
           data = s.nextInt();
         }
@@ -24,7 +24,7 @@ public class NodeDeletion{
 
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
 
         System.out.println();
@@ -33,7 +33,7 @@ public class NodeDeletion{
         int i=0;
         while(head != null){
             i++;
-            head = head.reference;
+            head = head.next;
         }
         return i;
     }
@@ -43,20 +43,20 @@ public class NodeDeletion{
         }
         
         if(pos == 0){
-            head = head.reference;
+            head = head.next;
             return head;
         } else {
             Node<Integer> prev = head;
             int count = 0;
             while(count<pos-1 && prev!=null){
                 count++;
-                prev = prev.reference;
+                prev = prev.next;
             }
-           if(prev == null || prev.reference == null){
+           if(prev == null || prev.next == null){
             return head;
            }
 
-           prev.reference = prev.reference.reference;
+           prev.next = prev.next.next;
            return head;
         }
     }
@@ -65,18 +65,18 @@ public class NodeDeletion{
         int count = 0;
         Node<Integer> nodeToInserted = new Node<Integer>(data);
         if(index == 0){
-            nodeToInserted.reference = head;
+            nodeToInserted.next = head;
             head = nodeToInserted;
         }else{
             Node<Integer> prev = head;
             while(count<index-1 && prev !=null){
                 count++;
-              prev = prev.reference;
+              prev = prev.next;
              }
              
              if(prev!=null){
-                nodeToInserted.reference = prev.reference;
-                prev.reference = nodeToInserted;
+                nodeToInserted.next = prev.next;
+                prev.next = nodeToInserted;
              }
 
         }

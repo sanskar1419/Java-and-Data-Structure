@@ -12,8 +12,8 @@ public class NodeInsertion{
             head = currentNode;
             tail = currentNode;
           } else {
-            tail.reference = currentNode;
-            tail = tail.reference;
+            tail.next = currentNode;
+            tail = tail.next;
           }
           data = s.nextInt();
         }
@@ -24,7 +24,7 @@ public class NodeInsertion{
 
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
 
         System.out.println();
@@ -33,7 +33,7 @@ public class NodeInsertion{
         int i=0;
         while(head != null){
             i++;
-            head = head.reference;
+            head = head.next;
         }
         return i;
     }
@@ -44,14 +44,14 @@ public class NodeInsertion{
         return head;
 
         if(index == 0){
-            nodeToAdd.reference = head;
+            nodeToAdd.next = head;
             head = nodeToAdd;
         } else if(index == n){
           Node<Integer> temp = head;
-          while(temp.reference != null){
-            temp = temp.reference;
+          while(temp.next != null){
+            temp = temp.next;
           }
-          temp.reference = nodeToAdd;
+          temp.next = nodeToAdd;
         } else{
             int j = 0;
             Node<Integer> temp = head;
@@ -59,15 +59,15 @@ public class NodeInsertion{
             while(temp!=null){
                 if(j == index-1){
                     firstNode = temp;
-                    secondNode = temp.reference;
+                    secondNode = temp.next;
                     break;
                 }
                 j++;
-                temp=temp.reference;
+                temp=temp.next;
             } 
 
-            nodeToAdd.reference = secondNode;
-            firstNode.reference = nodeToAdd;
+            nodeToAdd.next = secondNode;
+            firstNode.next = nodeToAdd;
         }
         return head;
     }
@@ -76,18 +76,18 @@ public class NodeInsertion{
         int count = 0;
         Node<Integer> nodeToInserted = new Node<Integer>(data);
         if(index == 0){
-            nodeToInserted.reference = head;
+            nodeToInserted.next = head;
             head = nodeToInserted;
         }else{
             Node<Integer> prev = head;
             while(count<index-1 && prev !=null){
                 count++;
-              prev = prev.reference;
+              prev = prev.next;
              }
              
              if(prev!=null){
-                nodeToInserted.reference = prev.reference;
-                prev.reference = nodeToInserted;
+                nodeToInserted.next = prev.next;
+                prev.next = nodeToInserted;
              }
 
         }

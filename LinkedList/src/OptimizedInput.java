@@ -12,8 +12,8 @@ public class OptimizedInput {
                 head = currentNode;
                 tail = currentNode;
             } else {
-                tail.reference = currentNode;
-                tail =  tail.reference; // tail = currentNode
+                tail.next = currentNode;
+                tail =  tail.next; // tail = currentNode
             }
             data = s.nextInt();
         }
@@ -24,7 +24,7 @@ public class OptimizedInput {
         Node<Integer> temp = head;
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.reference;
+            temp = temp.next;
         }
         System.out.println();
     }
