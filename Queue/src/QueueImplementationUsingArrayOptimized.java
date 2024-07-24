@@ -19,7 +19,7 @@ public class QueueImplementationUsingArrayOptimized {
     }
 
     public int front() throws QueueEmptyException {
-        if (front == -1)
+        if (size == 0)
             throw new QueueEmptyException();
 
         return this.data[front];
@@ -27,15 +27,22 @@ public class QueueImplementationUsingArrayOptimized {
     }
 
     public void enqueue(int num) throws QueueFullException {
-        if (rear >= data.length - 1)
+        if (size == data.length)
             throw new QueueFullException();
 
         if (size == 0) {
-            front++;
+            front = 0;
         }
 
-        data[rear + 1] = num;
-        rear++;
+        /*
+         * rear++;
+         * if (rear == data.length) {
+         * rear = 0;
+         * }
+         */
+
+        rear = (rear + 1) % data.length;
+        data[rear] = num;
         size++;
     }
 
@@ -52,14 +59,21 @@ public class QueueImplementationUsingArrayOptimized {
     }
 
     public int dequeue() throws QueueEmptyException {
-        if (rear <= -1)
+        if (size == 0)
             throw new QueueEmptyException();
 
         int temp = data[front];
 
-        front++;
-        size--;
+        /*
+         * front++;
+         * if (front == data.length) {
+         * front = 0;
+         * }
+         */
 
+        front = (front + 1) % data.length;
+
+        size--;
         if (size == 0) {
             front = -1;
             rear = -1;
