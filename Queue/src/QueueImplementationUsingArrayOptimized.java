@@ -5,7 +5,7 @@ public class QueueImplementationUsingArrayOptimized {
     private int size;
 
     QueueImplementationUsingArrayOptimized() {
-        this.data = new int[5];
+        this.data = new int[3];
         this.rear = -1;
         this.front = -1;
     }
@@ -28,8 +28,7 @@ public class QueueImplementationUsingArrayOptimized {
 
     public void enqueue(int num) throws QueueFullException {
         if (size == data.length)
-            throw new QueueFullException();
-
+            doubleSize();
         if (size == 0) {
             front = 0;
         }
@@ -47,15 +46,32 @@ public class QueueImplementationUsingArrayOptimized {
     }
 
     private void doubleSize() {
-        int temp[] = this.data;
+        System.out.println("Function Executed");
+        int temp[] = data;
         data = new int[2 * temp.length];
-
         int j = 0;
-        for (int i = front; i <= rear; i++) {
+        for (int i = front; i < temp.length; i++) {
             data[j] = temp[i];
+            j++;
+        }
+
+        if (rear != temp.length - 1) {
+            for (int i = rear; i < front; i++) {
+                data[j] = temp[i];
+                j++;
+            }
         }
 
         front = 0;
+        rear = j - 1;
+
+    }
+
+    public void print() {
+        for (int i : data) {
+            System.out.print(i + " ");
+        }
+
     }
 
     public int dequeue() throws QueueEmptyException {
