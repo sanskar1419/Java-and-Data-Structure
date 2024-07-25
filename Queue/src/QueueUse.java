@@ -1,27 +1,38 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class QueueUse {
     public static void main(String args[]) throws QueueEmptyException, QueueFullException {
 
-        QueueImplementationUsingLL q = new QueueImplementationUsingLL();
+        Queue<Integer> queue = new LinkedList<>();
 
-        q.enqueue(10);
-        q.enqueue(20);
-        q.enqueue(30);
+        System.out.println(queue.poll());
+        System.out.println(queue.remove());
 
-        System.out.println(q.dequeue());
-        System.out.println(q.dequeue());
+        /*
+         * QueueImplementationUsingLL q = new QueueImplementationUsingLL();
+         * 
+         * q.enqueue(10);
+         * q.enqueue(20);
+         * q.enqueue(30);
+         * 
+         * System.out.println(q.dequeue());
+         * System.out.println(q.dequeue());
+         * 
+         * q.enqueue(20);
+         * q.enqueue(40);
+         * 
+         * System.out.println(q.size());
+         * System.out.println(q.isEmpty());
+         * 
+         * while (!q.isEmpty()) {
+         * System.out.print(q.dequeue() + " ");
+         * }
+         * 
+         * System.out.println();
+         * System.out.println(q.isEmpty());
+         */
 
-        q.enqueue(20);
-        q.enqueue(40);
-
-        System.out.println(q.size());
-        System.out.println(q.isEmpty());
-
-        while (!q.isEmpty()) {
-            System.out.print(q.dequeue() + " ");
-        }
-
-        System.out.println();
-        System.out.println(q.isEmpty());
         /*
          * Queue implementation using Array
          * QueueImplementationUsingArrayOptimized queue = new
