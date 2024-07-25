@@ -2,35 +2,63 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class QueueUse {
-    public static void main(String args[]) throws QueueEmptyException, QueueFullException {
+    public static void main(String args[]) throws StackEmptyException {
 
-        QueueImplementationUsingStack queue = new QueueImplementationUsingStack();
+        StackImplementationUsingQueue stack = new StackImplementationUsingQueue();
 
-        System.out.println(queue.isEmpty());
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
+        System.out.println(stack.isEmpty());
+        stack.enqueue(10);
+        stack.enqueue(20);
+        stack.enqueue(30);
 
-        System.out.println(queue.size());
+        System.out.println(stack.size());
 
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        queue.enqueue(100);
-        queue.enqueue(50);
-        queue.enqueue(2);
+        System.out.println(stack.dequeue());
+        System.out.println(stack.dequeue());
+        stack.enqueue(100);
+        stack.enqueue(50);
+        stack.enqueue(2);
 
-        System.out.println(queue.size());
-        System.out.println(queue.isEmpty());
+        System.out.println(stack.size());
+        System.out.println(stack.isEmpty());
 
-        while (!queue.isEmpty()) {
-            System.out.print(queue.dequeue() + " ");
+        while (!stack.isEmpty()) {
+            System.out.print(stack.dequeue() + " ");
         }
 
         System.out.println();
-        System.out.println(queue.isEmpty());
+        System.out.println(stack.isEmpty());
 
         /*
-         * Stack Implementation using Java Collection Framework
+         * Queue Implementation using 2 Stack
+         * QueueImplementationUsingStack queue = new QueueImplementationUsingStack();
+         * 
+         * System.out.println(queue.isEmpty());
+         * queue.enqueue(10);
+         * queue.enqueue(20);
+         * queue.enqueue(30);
+         * 
+         * System.out.println(queue.size());
+         * 
+         * System.out.println(queue.dequeue());
+         * System.out.println(queue.dequeue());
+         * queue.enqueue(100);
+         * queue.enqueue(50);
+         * queue.enqueue(2);
+         * 
+         * System.out.println(queue.size());
+         * System.out.println(queue.isEmpty());
+         * 
+         * while (!queue.isEmpty()) {
+         * System.out.print(queue.dequeue() + " ");
+         * }
+         * 
+         * System.out.println();
+         * System.out.println(queue.isEmpty());
+         */
+
+        /*
+         * Queue Implementation using Java Collection Framework
          * Queue<Integer> queue = new LinkedList<>();
          * 
          * System.out.println(queue.poll());
@@ -38,7 +66,7 @@ public class QueueUse {
          */
 
         /*
-         * Stack Implementation using LL
+         * Queue Implementation using LL
          * QueueImplementationUsingLL q = new QueueImplementationUsingLL();
          * 
          * q.enqueue(10);
