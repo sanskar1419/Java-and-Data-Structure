@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static int countNodesGreaterThanX(BinaryNode<Integer> root, int X) {
+        if (root == null)
+            return 0;
+        int leftNodes = countNodesGreaterThanX(root.leftNode, X);
+        int rightNodes = countNodesGreaterThanX(root.rightNode, X);
+
+        return (root.data > X ? 1 : 0) + leftNodes + rightNodes;
+    }
+
     public static int maxNode(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
@@ -123,7 +132,7 @@ public class CreateBinaryTree {
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
 
-        System.out.println(maxNode(root));
+        System.out.println(countNodesGreaterThanX(root, 2));
         // preOrderTraversal(root);
         // System.out.println();
         // postOrderTraversal(root);
