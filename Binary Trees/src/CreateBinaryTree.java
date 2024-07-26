@@ -1,14 +1,24 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+
+    public static int nodesTotalSum(BinaryNode<Integer> root) {
+        if (root == null)
+            return 0;
+        int numberOfLeftNodes = nodesTotalSum(root.leftNode);
+        int numberOfRightNodes = nodesTotalSum(root.rightNode);
+
+        return root.data + numberOfLeftNodes + numberOfRightNodes;
+    }
+
     public static int numberOfNodes(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
 
-        int numberOfLeftNodes = numberOfNodes(root.leftNode);
-        int numberOfRightNodes = numberOfNodes(root.rightNode);
+        int leftSum = numberOfNodes(root.leftNode);
+        int rightSum = numberOfNodes(root.rightNode);
 
-        return 1 + numberOfLeftNodes + numberOfRightNodes;
+        return 1 + leftSum + rightSum;
 
     }
 
@@ -86,6 +96,8 @@ public class CreateBinaryTree {
 
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
         printBTRecursivelyDetailed(root);
-        System.out.println(numberOfNodes(root));
+        System.out.println("Number of node in the binary tree are : " + numberOfNodes(root));
+        System.out.println("Total Sum of nodes is : " + nodesTotalSum(root));
+
     }
 }
