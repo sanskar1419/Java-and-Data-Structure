@@ -4,10 +4,8 @@ public class CreateBinaryTree {
     public static int heightOfTree(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
-        int leftHeight = heightOfTree(root.leftNode);
-        int rightHeight = heightOfTree(root.rightNode);
 
-        return 1 + Math.max(leftHeight, rightHeight);
+        return 1 + Math.max(heightOfTree(root.leftNode), heightOfTree(root.rightNode));
     }
 
     public static int countNodesGreaterThanX(BinaryNode<Integer> root, int X) {
