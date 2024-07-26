@@ -2,6 +2,16 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static void convertToDepthTree(BinaryNode<Integer> root, int k) {
+        if (root == null)
+            return;
+
+        root.data = k;
+        convertToDepthTree(root.leftNode, k + 1);
+        convertToDepthTree(root.rightNode, k + 1);
+
+    }
+
     public static void printNodesInKDepth(BinaryNode<Integer> root, int k) {
         if (root == null)
             return;
