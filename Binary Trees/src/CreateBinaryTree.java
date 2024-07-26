@@ -2,6 +2,19 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static void printNodesInKDepth(BinaryNode<Integer> root, int k) {
+        if (root == null)
+            return;
+
+        if (k == 0) {
+            System.out.print(root.data + " ");
+            return;
+        }
+        printNodesInKDepth(root.leftNode, k - 1);
+        printNodesInKDepth(root.rightNode, k - 1);
+
+    }
+
     public static int countLeafNode(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
@@ -152,8 +165,7 @@ public class CreateBinaryTree {
 
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
-
-        System.out.println(countLeafNode(root));
+        printNodesInKDepth(root, 2);
         // preOrderTraversal(root);
         // System.out.println();
         // postOrderTraversal(root);
