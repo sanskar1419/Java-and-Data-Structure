@@ -2,6 +2,15 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static void preOrderTraversal(BinaryNode<Integer> root) {
+        if (root == null)
+            return;
+
+        System.out.print(root.data + " ");
+        preOrderTraversal(root.leftNode);
+        preOrderTraversal(root.rightNode);
+    }
+
     public static int nodesTotalSum(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
@@ -85,6 +94,9 @@ public class CreateBinaryTree {
     }
 
     public static void main(String args[]) {
+        BinaryNode<Integer> root = takeInputBetter(true, 0, true);
+        preOrderTraversal(root);
+
         // BinaryNode<Integer> firstNode = new BinaryNode<Integer>(10);
         // BinaryNode<Integer> secondNode = new BinaryNode<Integer>(20);
         // BinaryNode<Integer> thirdNode = new BinaryNode<Integer>(30);
@@ -94,10 +106,11 @@ public class CreateBinaryTree {
         // firstNode.rightNode = thirdNode;
         // thirdNode.leftNode = fourthNode;
 
-        BinaryNode<Integer> root = takeInputBetter(true, 0, true);
-        printBTRecursivelyDetailed(root);
-        System.out.println("Number of node in the binary tree are : " + numberOfNodes(root));
-        System.out.println("Total Sum of nodes is : " + nodesTotalSum(root));
+        // BinaryNode<Integer> root = takeInputBetter(true, 0, true);
+        // printBTRecursivelyDetailed(root);
+        // System.out.println("Number of node in the binary tree are : " +
+        // numberOfNodes(root));
+        // System.out.println("Total Sum of nodes is : " + nodesTotalSum(root));
 
     }
 }
