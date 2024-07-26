@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static int numberOfNodes(BinaryNode<Integer> root) {
+        if (root == null)
+            return 0;
+
+        int numberOfLeftNodes = numberOfNodes(root.leftNode);
+        int numberOfRightNodes = numberOfNodes(root.rightNode);
+
+        return 1 + numberOfLeftNodes + numberOfRightNodes;
+
+    }
+
     public static BinaryNode<Integer> takeInputBetter(boolean isRoot, int parentData, boolean isLeft) {
         if (isRoot) {
             System.out.print("Enter the root element : ");
@@ -75,5 +86,6 @@ public class CreateBinaryTree {
 
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
         printBTRecursivelyDetailed(root);
+        System.out.println(numberOfNodes(root));
     }
 }
