@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static void inOrderTraversal(BinaryNode<Integer> root) {
+        if (root == null)
+            return;
+
+        inOrderTraversal(root.leftNode);
+        System.out.print(root.data + " ");
+        inOrderTraversal(root.rightNode);
+
+    }
+
     public static void postOrderTraversal(BinaryNode<Integer> root) {
         if (root == null)
             return;
@@ -106,6 +116,8 @@ public class CreateBinaryTree {
         preOrderTraversal(root);
         System.out.println();
         postOrderTraversal(root);
+        System.out.println();
+        inOrderTraversal(root);
 
         // BinaryNode<Integer> firstNode = new BinaryNode<Integer>(10);
         // BinaryNode<Integer> secondNode = new BinaryNode<Integer>(20);
