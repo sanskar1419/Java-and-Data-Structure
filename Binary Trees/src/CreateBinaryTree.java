@@ -1,6 +1,20 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+
+    public static int countLeafNode(BinaryNode<Integer> root) {
+        if (root == null)
+            return 0;
+
+        if (root.leftNode == null && root.rightNode == null)
+            return 1;
+
+        int leafNodeLeft = countLeafNode(root.leftNode);
+        int leafNodeRight = countLeafNode(root.rightNode);
+
+        return leafNodeLeft + leafNodeRight;
+    }
+
     public static int heightOfTree(BinaryNode<Integer> root) {
         if (root == null)
             return 0;
@@ -139,7 +153,7 @@ public class CreateBinaryTree {
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
 
-        System.out.println(heightOfTree(root));
+        System.out.println(countLeafNode(root));
         // preOrderTraversal(root);
         // System.out.println();
         // postOrderTraversal(root);
