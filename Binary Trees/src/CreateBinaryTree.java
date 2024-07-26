@@ -1,4 +1,20 @@
 public class CreateBinaryTree {
+    public static void printBTRecursivelyDetailed(
+            BinaryNode<Integer> root) {
+        if (root == null)
+            return;
+
+        System.out.print(root.data + " : ");
+        if (root.leftNode != null)
+            System.out.print("L" + root.leftNode.data + ", ");
+        if (root.rightNode != null)
+            System.out.print("R" + root.rightNode.data);
+
+        System.out.println();
+        printBTRecursivelyDetailed(root.leftNode);
+        printBTRecursivelyDetailed(root.rightNode);
+    }
+
     public static void printBTRecursively(BinaryNode<Integer> root) {
         if (root == null)
             return;
@@ -18,6 +34,6 @@ public class CreateBinaryTree {
         firstNode.rightNode = thirdNode;
         thirdNode.leftNode = fourthNode;
 
-        printBTRecursively(firstNode);
+        printBTRecursivelyDetailed(firstNode);
     }
 }
