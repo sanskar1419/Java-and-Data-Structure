@@ -1,6 +1,28 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static BinaryNode<Integer> takeInputBetter(boolean isRoot, int parentData, boolean isLeft) {
+        if (isRoot) {
+            System.out.print("Enter the root element : ");
+        } else {
+            if (isLeft)
+                System.out.print("Enter the left node of " + parentData + " : ");
+            else
+                System.out.print("Enter the right node of " + parentData + " : ");
+        }
+        Scanner s = new Scanner(System.in);
+        int rootData = s.nextInt();
+
+        if (rootData == -1)
+            return null;
+
+        BinaryNode<Integer> root = new BinaryNode<>(rootData);
+        root.leftNode = takeInputBetter(false, rootData, true);
+        root.rightNode = takeInputBetter(false, rootData, false);
+
+        return root;
+    }
+
     public static BinaryNode<Integer> takeInput() {
         System.out.print("Enter the root element : ");
         Scanner s = new Scanner(System.in);
@@ -51,7 +73,7 @@ public class CreateBinaryTree {
         // firstNode.rightNode = thirdNode;
         // thirdNode.leftNode = fourthNode;
 
-        BinaryNode<Integer> root = takeInput();
+        BinaryNode<Integer> root = takeInputBetter(true, 0, true);
         printBTRecursivelyDetailed(root);
     }
 }
