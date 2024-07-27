@@ -2,6 +2,24 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static void printNodesWithoutSibling(BinaryNode<Integer> root) {
+        // Your code goes here
+        if (root == null)
+            return;
+
+        if (root.leftNode == null && root.rightNode == null)
+            return;
+
+        if (root.leftNode == null) {
+            System.out.print(root.rightNode.data + " ");
+        } else if (root.rightNode == null) {
+            System.out.print(root.leftNode.data + " ");
+        }
+
+        printNodesWithoutSibling(root.leftNode);
+        printNodesWithoutSibling(root.rightNode);
+    }
+
     public static void convertToDepthTree(BinaryNode<Integer> root, int k) {
         if (root == null)
             return;
