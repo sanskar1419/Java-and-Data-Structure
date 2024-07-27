@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+
+    public static boolean isBalanced(BinaryNode<Integer> root) {
+        if (root == null)
+            return true;
+
+        if (Math.abs(heightOfTree(root.leftNode) - heightOfTree(root.rightNode)) > 1)
+            return false;
+
+        return isBalanced(root.leftNode) && isBalanced(root.rightNode);
+    }
+
     public static void mirrorBinaryTree(BinaryNode<Integer> root) {
 
         if (root == null)
@@ -219,10 +230,12 @@ public class CreateBinaryTree {
 
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
-        printBTRecursivelyDetailed(root);
-        mirrorBinaryTree(root);
-        System.out.println("Mirror Tree : ");
-        printBTRecursivelyDetailed(root);
+
+        System.out.println(isBalanced(root));
+        // printBTRecursivelyDetailed(root);
+        // mirrorBinaryTree(root);
+        // System.out.println("Mirror Tree : ");
+        // printBTRecursivelyDetailed(root);
         // root = removeLeafs(root);
         // printBTRecursivelyDetailed(root);
 
