@@ -1,6 +1,19 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static void mirrorBinaryTree(BinaryNode<Integer> root) {
+
+        if (root == null)
+            return;
+
+        BinaryNode<Integer> temp = root.leftNode;
+        root.leftNode = root.rightNode;
+        root.rightNode = temp;
+
+        mirrorBinaryTree(root.leftNode);
+        mirrorBinaryTree(root.rightNode);
+
+    }
 
     public static BinaryNode<Integer> removeLeafs(BinaryNode<Integer> root) {
         if (root == null)
@@ -206,8 +219,12 @@ public class CreateBinaryTree {
 
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
-        root = removeLeafs(root);
         printBTRecursivelyDetailed(root);
+        mirrorBinaryTree(root);
+        System.out.println("Mirror Tree : ");
+        printBTRecursivelyDetailed(root);
+        // root = removeLeafs(root);
+        // printBTRecursivelyDetailed(root);
 
         // preOrderTraversal(root);
         // System.out.println();
