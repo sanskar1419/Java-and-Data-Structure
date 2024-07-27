@@ -2,6 +2,19 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static BinaryNode<Integer> removeLeafs(BinaryNode<Integer> root) {
+        if (root == null)
+            return null;
+
+        if (root.leftNode == null && root.rightNode == null)
+            return null;
+
+        root.leftNode = removeLeafs(root.leftNode);
+        root.rightNode = removeLeafs(root.rightNode);
+
+        return root;
+    }
+
     public static void printNodesWithoutSibling(BinaryNode<Integer> root) {
         // Your code goes here
         if (root == null)
@@ -193,7 +206,9 @@ public class CreateBinaryTree {
 
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
-        printNodesInKDepth(root, 2);
+        root = removeLeafs(root);
+        printBTRecursivelyDetailed(root);
+
         // preOrderTraversal(root);
         // System.out.println();
         // postOrderTraversal(root);
