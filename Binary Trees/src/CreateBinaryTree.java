@@ -2,6 +2,27 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static BalancedTreeReturn isBalancedBetter(BinaryNode<Integer> root) {
+        if (root == null) {
+            return new BalancedTreeReturn(0, true);
+        }
+
+        BalancedTreeReturn leftOutput = isBalancedBetter(root.leftNode);
+        BalancedTreeReturn rightOutput = isBalancedBetter(root.rightNode);
+
+        boolean isBalanced = true;
+        int height = 1 + Math.max(leftOutput.height, rightOutput.height);
+
+        if (Math.abs(leftOutput.height - rightOutput.height) > 1)
+            isBalanced = false;
+
+        if (!leftOutput.isBalanced || !rightOutput.isBalanced)
+            isBalanced = false;
+
+        return new BalancedTreeReturn(height, isBalanced);
+
+    }
+
     public static boolean isBalanced(BinaryNode<Integer> root) {
         if (root == null)
             return true;
@@ -230,8 +251,10 @@ public class CreateBinaryTree {
 
     public static void main(String args[]) {
         BinaryNode<Integer> root = takeInputBetter(true, 0, true);
+        BalancedTreeReturn result = isBalancedBetter(root);
+        System.out.println(result.height + " " + result.isBalanced);
 
-        System.out.println(isBalanced(root));
+        // System.out.println(isBalanced(root));
         // printBTRecursivelyDetailed(root);
         // mirrorBinaryTree(root);
         // System.out.println("Mirror Tree : ");
