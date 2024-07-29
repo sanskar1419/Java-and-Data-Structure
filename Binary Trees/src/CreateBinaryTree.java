@@ -2,6 +2,17 @@ import java.util.Scanner;
 
 public class CreateBinaryTree {
 
+    public static int diameterOfBinaryTree(BinaryNode<Integer> root) {
+        if (root == null)
+            return 0;
+
+        int diameterAtRoot = heightOfTree(root.leftNode) + heightOfTree(root.rightNode) + 1;
+        int diameterOnLeft = diameterOfBinaryTree(root.leftNode);
+        int diameterOnRight = diameterOfBinaryTree(root.rightNode);
+
+        return Math.max(diameterAtRoot, Math.max(diameterOnLeft, diameterOnRight));
+    }
+
     public static BalancedTreeReturn isBalancedBetter(BinaryNode<Integer> root) {
         if (root == null) {
             return new BalancedTreeReturn(0, true);
