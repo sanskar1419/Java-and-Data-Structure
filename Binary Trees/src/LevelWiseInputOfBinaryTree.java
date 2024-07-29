@@ -55,8 +55,38 @@ public class LevelWiseInputOfBinaryTree {
         printBTRecursivelyDetailed(root.rightNode);
     }
 
+    public static void printLevelWise(BinaryNode<Integer> root) {
+        if (root == null)
+            return;
+
+        Queue<BinaryNode<Integer>> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            BinaryNode<Integer> currentNode = queue.poll();
+
+            System.out.print(currentNode.data + " : ");
+            if (currentNode.leftNode != null) {
+                System.out.print("L" + currentNode.leftNode.data + ", ");
+                queue.add(currentNode.leftNode);
+            }
+
+            if (currentNode.rightNode != null) {
+                System.out.print("R" + currentNode.rightNode.data);
+                queue.add(currentNode.rightNode);
+            }
+
+            System.out.println();
+
+        }
+
+    }
+
     public static void main(String args[]) {
         BinaryNode<Integer> root = input();
         printBTRecursivelyDetailed(root);
+
+        System.out.println("Printing Level Wise ..................");
+        printLevelWise(root);
     }
 }
