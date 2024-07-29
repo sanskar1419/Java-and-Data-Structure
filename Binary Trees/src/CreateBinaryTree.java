@@ -1,6 +1,18 @@
 import java.util.Scanner;
 
 public class CreateBinaryTree {
+    public static Pair diameterOfBinaryTreeBetter(BinaryNode<Integer> root) {
+        if (root == null)
+            return new Pair(0, 0);
+
+        Pair leftPair = diameterOfBinaryTreeBetter(root.leftNode);
+        Pair rightPair = diameterOfBinaryTreeBetter(root.rightNode);
+
+        int rootDiameter = leftPair.height + rightPair.height + 1;
+
+        return new Pair(Math.max(leftPair.height, rightPair.height) + 1,
+                Math.max(rootDiameter, Math.max(leftPair.diameter, rightPair.diameter)));
+    }
 
     public static int diameterOfBinaryTree(BinaryNode<Integer> root) {
         if (root == null)
