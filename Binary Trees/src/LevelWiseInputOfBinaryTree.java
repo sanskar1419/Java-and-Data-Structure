@@ -2,6 +2,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+import ReusableClass.BinaryNode;
+
 public class LevelWiseInputOfBinaryTree {
     public static BinaryNode<Integer> input() {
 

@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import ReusableClass.BinaryNode;
+
 public class CreateBinaryTree {
     public static Pair diameterOfBinaryTreeBetter(BinaryNode<Integer> root) {
         if (root == null)

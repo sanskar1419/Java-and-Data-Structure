@@ -1,3 +1,5 @@
+package ReusableClass;
+
 public class BinaryNode<T> {
     public T data;
     public BinaryNode<T> leftNode;
